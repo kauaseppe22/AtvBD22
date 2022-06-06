@@ -1,0 +1,129 @@
+CREATE TABLE livros (
+cod_livros int PRIMARY KEY ,
+titulo varchar(100),
+autor varchar(100) 
+);
+
+CREATE TABLE amigos (
+cod_amigos int PRIMARY KEY,
+nome varchar(100),
+idade integer 
+);
+
+CREATE TABLE emprestimos (
+cod_emprestimos int PRIMARY KEY ,
+cod_livros integer ,
+cod_amigos integer,
+data_emprestimo date ,
+);
+
+ALTER TABLE emprestimos ADD CONSTRAINT fk_livros FOREIGN KEY (cod_livros) REFERENCES livros (cod_livros);
+ALTER TABLE emprestimos ADD CONSTRAINT fk_amigos FOREIGN KEY (cod_amigos) REFERENCES amigos (cod_amigos);
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(1,'revolução dos bichos','george orwell')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(2,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(3,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(4,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(5,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(6,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(7,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(8,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(9,'titulo','autor ')
+
+insert into livros
+(cod_livros, titulo, autor)
+VALUES
+(10,'titulo','autor ')
+
+
+select * from livros
+
+insert into amigos (cod_amigos, nome, idade)
+VALUES (1,'nome','idade')
+
+insert into amigos (cod_amigos, nome, idade)
+VALUES (2,'nome','idade')
+
+insert into amigos (cod_amigos, nome, idade)
+VALUES (3,'nome','idade')
+
+insert into amigos (cod_amigos, nome, idade)
+VALUES (4,'nome','idade')
+
+insert into amigos (cod_amigos, nome, idade)
+VALUES (5,'nome','idade')
+
+
+select * from amigos
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (1,1,2,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (2,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (3,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (4,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (5,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (6,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (7,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (8,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (9,cod_livro,cod amigos,'04/06/2022')
+
+insert into emprestimos (cod_emprestimos, cod_livros, cod_amigos, data_emprestimo)
+VALUES (10,cod_livro,cod amigos,'04/06/2022')
+
+select * from emprestimos
+
+select l.cod_livros, l.titulo, a.cod_amigos, a.nome,a.idade, e.data_emprestimo
+	from emprestimos as e
+	inner join amigos as a on a.cod_amigos = e.cod_amigos
+	inner join livros as l on l.cod_livros = e.cod_livros
